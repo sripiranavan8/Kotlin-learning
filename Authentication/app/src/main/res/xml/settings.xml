@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference
+        app:key="fact_type_pref"
+        app:title="Fun Fact Type"
+        app:entries="@array/fact_type"
+        app:entryValues="@array/fact_type"
+        app:defaultValue="Android"
+        app:useSimpleSummaryProvider="true"
+        />
+</PreferenceScreen>
