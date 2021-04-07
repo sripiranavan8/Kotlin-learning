@@ -16,6 +16,9 @@ class ApplicationViewModel: ViewModel() {
     private val _email = MutableLiveData<String>()
     val email:LiveData<String> = _email
 
+    private val _dob = MutableLiveData<String>()
+    val dob:LiveData<String> = _dob
+
     init {
         resetForm()
         Log.d("Testa","From Application View Model")
@@ -33,9 +36,14 @@ class ApplicationViewModel: ViewModel() {
         _email.value = email
     }
 
+    fun setDob(dob:String){
+        _dob.value = dob
+    }
+
     fun resetForm(){
         _email.value = ""
         _firstName.value = ""
         _lastName.value = ""
+        _dob.value = ""
     }
 }

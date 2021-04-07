@@ -12,9 +12,11 @@
             name="applicationFragment"
             type="com.sripiranavan.learning.fragmenttest.fragment.ApplicationFragment" />
     </data>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:textAlignment="center">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,11 +26,12 @@
                 android:id="@+id/firstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:hint="@string/first_name"
                 android:text="@string/first_name"
                 android:textAlignment="textStart"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,12 +39,14 @@
                 android:id="@+id/firstNameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:text="@{applicationModel.firstName}"
                 android:hint="@string/first_name"
                 android:inputType="textPersonName"
+                android:text="@{applicationModel.firstName}"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.527"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
@@ -49,8 +54,10 @@
                 android:id="@+id/lastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
                 android:text="@string/last_name"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/firstNameEditText" />
 
@@ -59,22 +66,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/last_name"
-                android:text="@{applicationModel.lastName}"
                 android:inputType="textPersonName"
+                android:text="@{applicationModel.lastName}"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lastName"
-                android:autofillHints="" />
+                app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
             <TextView
                 android:id="@+id/emailLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
                 android:text="@string/email_address"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lastNameEditText" />
 
@@ -83,38 +94,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/email_address"
-                android:text="@{applicationModel.email}"
                 android:inputType="textEmailAddress"
+                android:text="@{applicationModel.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+
+            <TextView
+                android:id="@+id/dobLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/dob"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emialAddressEditText" />
+
+            <EditText
+                android:id="@+id/dateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:focusable="false"
+                android:ems="10"
+                android:hint="@string/dateFormat"
+                android:text="@{applicationModel.dob}"
+                android:inputType="date"
+                android:onClick="@{() -> applicationFragment.getDatePicker()}"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emailLabel"
-                android:autofillHints="" />
+                app:layout_constraintTop_toBottomOf="@+id/dobLabel" />
 
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="84dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="8dp"
+                android:onClick="@{() -> applicationFragment.saveApplicationForm()}"
                 android:text="@string/submit"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emialAddressEditText"
-                android:onClick="@{() -> applicationFragment.saveApplicationForm()}"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/dateOfBirth" />
 
             <Button
                 android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="84dp"
+                android:layout_marginEnd="80dp"
+                android:onClick="@{() -> applicationFragment.goToHome()}"
                 android:text="@string/cancel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emialAddressEditText"
-                android:onClick="@{() -> applicationFragment.goToHome()}"
-                />
+                app:layout_constraintStart_toEndOf="@+id/submitButton"
+                app:layout_constraintTop_toBottomOf="@+id/dateOfBirth" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

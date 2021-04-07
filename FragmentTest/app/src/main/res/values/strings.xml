@@ -97,4 +97,6 @@
     <string name="email_address">Enter your email address</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
+    <string name="dob">Date of Birth</string>
+    <string name="dateFormat">dd/mm/yyyy</string>
 </resources>

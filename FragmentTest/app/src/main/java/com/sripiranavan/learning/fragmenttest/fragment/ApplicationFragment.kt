@@ -1,5 +1,6 @@
 package com.sripiranavan.learning.fragmenttest.fragment
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -52,6 +53,20 @@ class ApplicationFragment : Fragment() {
         applicationViewModel.setEmail(view?.findViewById<EditText>(R.id.emialAddressEditText)?.text.toString())
         Log.d("Testa",applicationViewModel.email.value.toString())
         applicationViewModel.resetForm()
+    }
+
+    fun getDatePicker(){
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        val dpd = DatePickerDialog(this@ApplicationFragment.requireActivity(), DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            // Display Selected date in Toast
+            val date = dayOfMonth.toString() + "/" + (monthOfYear + 1).toString() + "/" + year.toString()
+            applicationViewModel.setDob(date)
+        }, year, month, day)
+        dpd.show()
     }
 
     override fun onDestroy() {
